@@ -1,0 +1,34 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron">
+    <fieldset>
+        <form class="form-horizontal" method="POST">
+            <div class="row">
+                <h3 class="col-md-12 text-center">Añadir medida a {{name}}</h3>
+            </div>
+            {% for category, message in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">{{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="control-group mt-3 col-md-2 offset-md-4 text-center">
+                    <label><strong>Fecha</strong></label> <input class="form-control" type="date" name="date" value="{{date}}" required="required">
+                </div>
+                <div class="control-group mt-3 col-md-2 text-center">
+                    <label><strong>Medida</strong></label> <input class="form-control" type="number" name="data" value="{{data}}" required="required">
+                </div>
+            </div>    
+            <div class="row">
+                <div class="control-group mt-3 offset-md-5 col-md-2">
+                    <button type="submit" class="btn btn-primary btn-block">Añadir</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>
+
+{% endblock %}

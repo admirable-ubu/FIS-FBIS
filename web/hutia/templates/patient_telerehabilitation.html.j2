@@ -1,0 +1,25 @@
+{% extends "patient_menu.html.j2" %}
+
+{% block btn_verde %}{% endblock %}
+{% block btn_rojo %}{% endblock %}
+{% block btn_azul %}{% endblock %}
+
+{% block before_menu %}
+    <div class="row" id="out">
+        <div class="col-12" style="max-height: fit-content;">
+            <div class="embed-responsive embed-responsive-16by9 h-75 mh-75 w-75 m-auto">
+                <iframe class="embed-responsive-item " src="{{jitsi}}/{{token}}" allow="camera; microphone; speaker" id="jitsi"></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block amarillo_function%}
+window.location.replace("{{url_for("core.patient_menu")}}");
+{% endblock %}
+
+{% block menu_js %}
+$("document").ready(function(){
+    this.iFramePanel1.Eval(“this.getContentElement().setAttribute(‘allow’, ‘microphone camera’)”)
+});
+{% endblock %}

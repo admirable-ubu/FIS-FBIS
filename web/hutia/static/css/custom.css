@@ -1,0 +1,61 @@
+:root {
+    --x-btn: #201ac6;
+    --y-btn: #19963a;
+    --a-btn: #e81921;
+    --b-btn: #ffc118;
+    --select-btn: #57585c;
+}
+
+
+.btn-x {
+    color: #d8d7d5;
+    background-color: var(--x-btn);
+    border-color: var(--x-btn);
+}
+
+.btn-y {
+    color: #27282a;
+    background-color: var(--y-btn);
+    border-color: var(--y-btn);
+}
+
+.btn-a {
+    color: #d8d7d5;
+    background-color: var(--a-btn);
+    border-color: var(--a-btn);
+}
+
+.btn-b {
+    color: #27282a;
+    background-color: var(--b-btn);
+    border-color: var(--b-btn);
+}
+
+.btn-select {
+    color: #d8d7d5;
+    background-color: var(--select-btn);
+    border-color: var(--select-btn);
+}
+
+.btn-x:hover, .btn-a:hover, .btn-select:hover{
+    color: #d8d7d5;
+}
+
+.btn-y:hover, .btn-b:hover {
+    color: #27282a;
+}
+
+.rounded-circle {
+    margin-top: 10rem !important;
+    border-radius: 35% !important;
+
+}
+
+#config {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

@@ -1,0 +1,64 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron">
+    <fieldset>
+        <form class="form-horizontal" method="POST">
+            <div class="row">
+                <h3 class="col-md-12 text-center">Seleccione el vídeo</h3>
+            </div>
+            <div class="row">
+                {% for f in ficheros %}
+                <div class="control-group mt-3 col-md-4 modalinit videolauncher" data-modal="modal" style="cursor: pointer;" data-file="{{f}}" data-name="{{names[loop.index0]}}">
+                    <img src="data:image/png;base64, {{ imagenes[loop.index0] | safe }}" class="img-fluid 
+                    p-2"/>
+                    <h5 class="text-center">{{ names[loop.index0] }}</h5>
+                </div>
+                {% endfor %}
+            </div>    
+        </form>
+    </fieldset>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $("document").ready(function(){
+        $(".videolauncher").each(function(){
+            $(this).click(function(){
+                let it = $(this);
+                let file = it.data("file");
+                let name = it.data("name");
+                $("#title").text(name);
+                $("#descargarbtn").attr("href","/descargar/"+file);
+                $("#video").html("<source src=\""+"/static/videos/processed/"+file+"\" type='video/webm'>")
+                //$("#videosrc").attr("src","/static/videos/processed/"+file)
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block modals %}
+    <div class="modal modalizer animate__animated animate__faster" id="modal" tabindex= "-1" role="dialog" data-animate-in="zoomIn" data-animate-out="zoomOut">
+        <div class="modal-dialog fullscreen modal-dialog-centered" role="document">
+        <div class="modal-content fullscreen">
+        <div class="modal-header fullscreen">
+            <h5 class="modal-title" id="title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body d-flex justify-content-center align-items-center" style="width: auto">
+            <video width="1280" height="720" controls muted seek id="video">
+            </video>
+        </div>
+        <div class="modal-footer fullscreen">
+            <a type="button" class="btn btn-primary btn-lg" href="#" id="descargarbtn" target="_blank">Descargar</a>
+            <button type="button" class="btn btn-secondary closemodal">Cerrar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+{%endblock%}
+

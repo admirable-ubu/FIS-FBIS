@@ -1,0 +1,140 @@
+{% extends "base.html.j2" %}
+
+{% block volver %}{% endblock %}
+
+{% block css%}
+<style>
+    body {
+        background-color: #d8d7d5;
+    }
+    .display-4 {
+        font-size: 1.5rem !important;
+        font-weight: 200 !important;
+        line-height: 1.2 !important;
+    }
+    .display-5 {
+        font-size: 1rem !important;
+        font-weight: 200 !important;
+        line-height: 1.0 !important;
+    }
+    @media (min-height: 768px){
+        .display-4 {
+            font-size: 3.5rem !important;
+            font-weight: 200 !important;
+            line-height: 1.2 !important;
+        }
+        .display-5 {
+            font-size: 2.5rem !important;
+            font-weight: 200 !important;
+            line-height: 1.2 !important;
+        }
+    }
+    @media (min-width: 4096px){
+        .display-4 {
+            font-size: 5rem !important;
+            font-weight: 200 !important;
+            line-height: 1.2 !important;
+        }
+        .display-5 {
+            font-size: 4rem !important;
+            font-weight: 200 !important;
+            line-height: 1.2 !important;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block before_anyelse %}{%endblock%}
+
+
+{% block content %}
+<h1 class="fixed-top text-capitalize font-weight-bold text-center mt-lg-4 pt-lg-4 display-1"></h1>
+<div class="h-100 w-100 d-flex align-items-stretch min-vh-100 min-vw-100">
+    <div class="d-flex align-items-center w-100">
+        <div class="container-fluid">
+            {% block before_menu %}{% endblock %}
+            <div class="row mb-4">
+                <div class="col-6 offset-3 d-flex justify-content-center">
+                    {% block btn_azul %}<button class="btn btn-x btn-lg p-5 text-uppercase text-center font-weight-bolder display-4" id="btn_azul" onclick="btn_x_function()"></button>{% endblock %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 d-flex justify-content-center">
+                    {% block btn_verde %}<button class="btn btn-y btn-lg p-5 text-uppercase text-center font-weight-bolder display-4" onclick="btn_y_function()" id="btn_verde"></button>{% endblock %}
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    {% block btn_rojo %}<button class="btn btn-a btn-lg p-5 text-uppercase text-center font-weight-bolder display-4" onclick="btn_a_function()" id="btn_rojo"></button>{% endblock %}
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-6 offset-3 d-flex justify-content-center">
+                    {% block btn_amarillo %}<button class="btn btn-b btn-lg p-4 text-uppercase text-center font-weight-bolder display-5" onclick="btn_b_function()" id="btn_amarillo">Volver</button>{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function(){
+        const ROJO_KEY = 97;
+        const AMARILLO_KEY = 98;
+        const AZUL_KEY = 120;
+        const VERDE_KEY = 121;
+        
+        btn_rojo = $("#btn_rojo");
+        btn_amarillo = $("#btn_amarillo");
+        btn_azul = $("#btn_azul");
+        btn_verde = $("#btn_verde");
+
+        $(document).keypress(function(event){
+            //Conocer códigos
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            console.log(keycode);
+            switch(keycode){
+                case ROJO_KEY:
+                    btn_rojo.click();
+                    break;
+                case AMARILLO_KEY:
+                    btn_amarillo.click();
+                    break;
+                case AZUL_KEY:
+                    btn_azul.click();
+                    break;
+                case VERDE_KEY:
+                    btn_verde.click();
+                    break;
+            }
+        });
+        
+    });
+    function btn_x_function(){
+        {% block azul_function %}
+        console.log("Se ha ejecutado la función de X");
+        {% endblock %}
+    }
+
+    function btn_y_function(){
+        {% block verde_function %}
+        console.log("Se ha ejecutado la función de Y");
+        {% endblock %}
+    }
+
+    function btn_a_function(){
+        {% block rojo_function %}
+        console.log("Se ha ejecutado la función de A");
+        {% endblock %}
+    }
+
+    function btn_b_function(){
+        {% block amarillo_function %}
+        console.log("Se ha ejecutado la función de B");
+        {% endblock %}
+    }
+</script>
+{% block menujs %}<script></script>{% endblock %}
+{% endblock %}
+{% block after_anyelse %}{%endblock%}
+

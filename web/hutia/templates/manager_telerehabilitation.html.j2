@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="row">
+        <h3 class="col-md-12 text-center">Llamada en curso</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12 embed-responsive embed-responsive-16by9">
+            <iframe id="jitsi-frame" class="embed-responsive-item" src="{{jitsi}}/{{token}}" allow="camera; microphone; speaker;" referrerpolicy="origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}

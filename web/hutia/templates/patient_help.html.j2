@@ -1,0 +1,14 @@
+
+{% extends "patient_menu.html.j2" %}
+
+{% block btn_rojo %}{% endblock %}
+{% block btn_azul %}{% endblock %}
+{% block btn_verde %}{% endblock %}
+
+{% block before_menu %}
+    <div class="row" id="out">
+        <div class="col-12 d-flex justify-content-center">
+            <img src="{{ url_for('static', filename='img/ayuda.png') }}" class="img-fluid" style="width: 35%;"/>
+        </div>
+    </div>
+{% endblock %}

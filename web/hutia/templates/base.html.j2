@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/normalizer.css") }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap-reboot.css") }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.css") }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap-grid.css") }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jlgarridol/modalizer.js@1.0.2/dist/css/modalizer.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename="css/custom.css") }}" />
+        {% block css %}
+        {% endblock %}
+
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>{{ title }}</title>
+    </head>
+    <body class="{% block body_class %}{% endblock %}" style="padding-right:0">
+        <div id="MOD_supreme-container" class="MOD_supreme-container">
+        {% block before_anyelse %}
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block volver %}
+        <div id="volver" class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 offset-md-2 mb-4">
+                    <div class="d-flex align-items-center">
+                        <a type="button" class="btn btn-info btn-sm ml-auto" href="{{url_for("core.manager_menu")}}">Volver al inicio</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <a type="button" class="btn btn-info btn-sm mr-auto" href="#a" onclick="window.history.back()">Volver atrás</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block after_anyelse %}
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center"> Proyecto FIS: Estudio de factibilidad y
+                                            coste-efectividad del uso de telemedicina
+                                            con un equipo multidisciplinar para
+                                            prevención de caídas en la enfermedad de
+                                            Parkinson (2020-2023) PI19/00670
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        {%block modals %}{%endblock%}
+        {% endblock %}
+        <script src="https://kit.fontawesome.com/3292dc6a03.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jlgarridol/modalizer.js@1.0.2/dist/js/modalizer.min.js"></script>
+        {% block js %}
+        {% endblock %}
+        
+        
+    </body>
+</html>

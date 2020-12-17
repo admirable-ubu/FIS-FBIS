@@ -1,0 +1,28 @@
+{% extends "patient_menu.html.j2" %}
+
+{% block btn_amarillo %}
+<button class="btn btn-select btn-lg p-2 px-5 mt-5 text-uppercase rounded-circle text-center font-weight-bolder display-4" onclick="btn_b_function()" id="btn_amarillo">Apagar</button>
+{% endblock %}
+
+{% block menujs %}
+<script>
+    $("document").ready(function(){
+        btn_azul.text("Llamar al médico");
+        btn_verde.text("Reunión grupal");
+        btn_rojo.text("Evolución")
+    });
+</script>
+
+{% endblock %}
+
+{% block azul_function %}
+window.location.href = "{{jitsi}}/{{token}}";
+{% endblock %}
+
+ {% block verde_function %}
+window.location.href = "{{jitsi}}reunion-grupal";
+ {% endblock %}
+
+ {% block rojo_function %}
+ window.location.href = "{{ url_for("core.patient_evaluacion")}}";
+ {% endblock %}

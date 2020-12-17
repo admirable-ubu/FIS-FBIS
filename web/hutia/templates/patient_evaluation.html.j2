@@ -1,0 +1,46 @@
+{% extends "patient_menu.html.j2" %}
+
+{% block btn_azul %}{% endblock %}
+{% block btn_verde %}{% endblock %}
+{% block btn_rojo %}{% endblock %}
+
+{% block before_menu %}
+    {% if da %}
+        <div class="row" id="out">
+            <div class="col-12 d-flex justify-content-center">
+                <h1 class="text-center display-1">
+                {% if ev < 0 %}
+                    Ánimo podemos mejorar.
+                {% elif ev < 5 %}
+                    Vas por buen camino.
+                {% elif ev <10 %}
+                    Bien hecho.
+                {% else %}
+                    Muy bien.
+                {% endif %}
+                <!--has obtenido un {{"{:.2f}".format(ev)}}% con respecto al dato anterior.-->
+                </h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                {% if ev < 0 %}
+                    <img src="{{ url_for('static', filename='img/mal.png') }}" class="img-fluid" style="width: 30%;"/>
+                {% elif ev < 5 %}
+                    <img src="{{ url_for('static', filename='img/mejorar.png') }}" class="img-fluid" style="width: 30%;"/>
+                {% elif ev <10 %}
+                    <img src="{{ url_for('static', filename='img/bien.png') }}" class="img-fluid" style="width: 30%;"/>
+                {% else %}
+                    <img src="{{ url_for('static', filename='img/muybien.png') }}" class="img-fluid" style="width: 30%;"/>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="row" id="out">
+            <div class="col-12 d-flex justify-content-center">
+                <h1 class="text-center display-1">Bien hecho.</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <img src="{{ url_for('static', filename='img/bien.png') }}" class="img-fluid" style="width: 30%;"/>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

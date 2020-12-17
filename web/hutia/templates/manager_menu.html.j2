@@ -1,0 +1,33 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron position-relative">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="text-center">Menú</h3>
+            <h4 class="text-center">Hola {{user.name}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 offset-md-3 mt-5">
+            <div class="d-flex align-items-center">
+                <a type="button" class="btn btn-primary btn-lg m-auto" href="{{url_for("core.manager_com")}}">Comunicación</a>
+            </div>
+        </div>
+        <div class="col-md-2 mt-5">
+            <div class="d-flex align-items-center">
+                <a type="button" class="btn btn-success btn-lg m-auto" href="{{url_for("core.videos")}}">Ver sesiones anteriores</a>
+            </div>
+        </div>
+        <div class="col-md-2 mt-5">
+            <div class="d-flex align-items-center">
+                <a type="button" class="btn btn-info btn-lg m-auto" href="{{url_for("core.base_statics")}}">Evolución de pacientes</a>
+            </div>
+        </div>
+    </div>
+    {% include "aux_menu_resp.html.j2" %}
+</div>
+
+{% endblock %}
+
+{% block volver %}{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="row">
+        <h3 class="col-md-12 text-center">Actualizar medidas de {{name}}</h3>
+    </div>
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <div class="col-md-6 offset-md-3 mt-5 text-center">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Medida</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dato in evolution %}
+                    <tr>
+                        <th scope="row">{{dato.date | date}}</th>
+                        <td><input value="{{dato.data}}" type="number" class="form-control" id="{{dato.date}}"></td>
+                        <td><button class="btn btn-block btn-warning" data-toggle="modal" data-target="#updateModal" data-to="{{dato.date}}">Actualizar</button></td>
+                        <td><button class="btn btn-block btn-danger" data-toggle="modal" data-target="#deleteModal" data-to="{{dato.date}}">Borrar</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{# Modal de actualización #}
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateTitle">¿Estás seguro que quieres actualizar la medida?<span class="badge badge-warning">Esta acción no se puede deshacer<span></h5>
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning" id="confirmUpdate">Confirmar actualización</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# Modal de borrado #}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Delete" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteTitle">¿Estás seguro que quieres borrar la medida?<span class="badge badge-danger">Esta acción no se puede deshacer<span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">Confirmar borrado</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    $('#updateModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var to = button.data('to')
+        var modal = $(this)
+        modal.find('#confirmUpdate').click(function(){
+                console.log("Confirmar actualización para el dato de la fecha "+to);
+                $.ajax({
+                    url: "{{ url_for("core.statics_modify", patient=idu) }}",
+                    type: "UPDATE",
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: "date="+to+"&data="+$("#"+to).val(),
+                    success: function(result){
+                        location.reload(true);
+                    },
+                    error: function(result){
+                        location.reload(true);
+                    }
+                });
+                modal.modal("hide");
+            })
+    });
+
+    $("#updateModal").on('hidden.bs.modal', function(e){
+        $(this).find("#confirmUpdate").off();
+    });
+</script>
+
+<script>
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        var to = button.data('to'); 
+        var modal = $(this);
+        modal.find('#confirmDelete').click(function(){
+                console.log("Confirmar borrado para el dato de la fecha "+to);
+                $.ajax({
+                    url: "{{ url_for("core.statics_modify", patient=idu) }}",
+                    type: "DELETE",
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: "date="+to,
+                    success: function(result){
+                        location.reload(true);
+                    },
+                    error: function(result){
+                        location.reload(true);
+                    }
+                });
+                modal.modal("hide");
+            });
+        
+    });
+
+    $("#deleteModal").on('hidden.bs.modal', function(e){
+        $(this).find("#confirmDelete").off();
+    });
+</script>
+{% endblock %}

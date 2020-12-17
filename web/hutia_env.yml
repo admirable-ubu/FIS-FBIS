@@ -1,0 +1,15 @@
+name: Hutia
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.7
+  - flask>=1.1.1
+  - flask-login>=0.4.1
+  - flask-wtf>=0.14.2
+  - flask-sqlalchemy>=2.4.0
+  - werkzeug=0.15.6
+  - flask-socketio>=4.2.1
+  - flask-cors>=3.0.8
+  - pip

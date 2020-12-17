@@ -1,0 +1,29 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+<div class="jumbotron">
+    <fieldset>
+        <form class="form-horizontal" method="POST">
+            <div class="row">
+                <h3 class="col-md-12 text-center">Seleccione al Paciente que quiere llamar</h3>
+            </div>
+            <div class="row">
+                <div class="control-group mt-3 offset-md-5 col-md-2">
+                    <select class="custom-select" name="patient">
+                        <option value="grupal">Llamadar a todos</option>
+                        {% for u in patients %}
+                            <option value="{{u.idu}}">{{u.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="control-group mt-3 offset-md-5 col-md-2 d-flex">
+                    <button type="submit" class="btn btn-primary m-auto">Llamar</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+    </div>
+</div>
+{% endblock %}

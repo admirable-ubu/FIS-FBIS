@@ -1,0 +1,40 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <fieldset class="col-6 offset-3">
+                <form class="form-horizontal" method="POST">
+                    <h3 class="text-center">Cambiar la contraseña</h3>
+                    {{ form.hidden_tag()}}
+                    {% for category, message in get_flashed_messages(with_categories=True) %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">{{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                    <div class="control-group">
+                        {{form.password_old.label(class="control")}}
+                        {{form.password_old(class="form-control")}}<br>
+                    </div>
+                    <div class="control-group">
+                        {{form.password_new.label(class="form-group")}}
+                        {{form.password_new(class="form-control")}}<br>
+                    </div>
+                    <div class="control-group">
+                        {{form.password_new_re.label(class="form-group")}}
+                        {{form.password_new_re(class="form-control")}}<br>
+                    </div>
+                    <div class="control-group">
+                        {{form.submit(class="btn btn-primary")}}
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

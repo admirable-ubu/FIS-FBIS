@@ -1,0 +1,52 @@
+{% extends "base.html.j2" %}
+
+{% block content %}
+    <div class="jumbotron container-fluid">
+        <div class="row" id="out">
+            <div class="col-12 d-flex justify-content-center">
+                <h1>Medidas para {{name}}</h1>
+            </div>
+            <div class="col-md-6 offset-md-3 d-flex justify-content-center">
+               <canvas id="myChart"></canvas> 
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels:{{fecha}},
+        datasets:[{
+            label:"Medida",
+            borderColor:"red",
+            backgroundColor:"red",
+            fill:false,
+            data:{{eva}},
+            borderWidth:1,
+            yAxisId:"y"
+        }]
+    },
+    options: {
+        responsive:true,
+        title:{
+            display:true
+        },
+        scales:{
+            yAxes:[{
+                id:"y",
+                position:"left",
+                type:"linear",
+                display:true
+            }]
+        }
+    }
+});
+
+console.log({{f}});
+
+</script>
+{% endblock %}
