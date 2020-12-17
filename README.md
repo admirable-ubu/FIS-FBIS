@@ -5,10 +5,9 @@
 ![GitHub](https://img.shields.io/github/license/jlgarridol/FIS-FBIS?style=flat-square) 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=flat-square)
 
-
-
-
 Repository of the software for the FIS' project PI19/00670: Feasibility and cost-effectiveness study of the use of telemedicine is being developed with a multidisciplinary team for the prevention of falls in Parkinson's disease
+
+Developed by *J.x. xxxx* and *J.x. xxxx*, supervised by Dr. Álvar Arnaiz-González, José-Francisco Díez-Pastor. Project PI: M.D. Esther Cubo
 
 ## Abstract
 During the last decades tele-rehabilitation has been consolidated as a solution for many diseases because of, mainly, its good results, its reduction of costs, and the possibility of reaching remote places. 
