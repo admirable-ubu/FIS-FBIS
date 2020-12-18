@@ -5,9 +5,9 @@
 ![GitHub](https://img.shields.io/github/license/jlgarridol/FIS-FBIS?style=flat-square) 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=flat-square)
 
-Repository of the software for the FIS' project PI19/00670: Feasibility and cost-effectiveness study of the use of telemedicine is being developed with a multidisciplinary team for the prevention of falls in Parkinson's disease
+Repository of the software for the project FIS PI19/00670 "Feasibility and cost-effectiveness study of the use of telemedicine is being developed with a multidisciplinary team for the prevention of falls in Parkinson's disease" of the Spanish Government.
 
-Developed by *J.x. xxxx* and *J.x. xxxx*, supervised by Dr. Álvar Arnaiz-González, José-Francisco Díez-Pastor. Project PI: M.D. Esther Cubo
+Developed by *Jose-Luis Garrido-Labrador* and *Jose-Miguel Ramírez-Sanz*, supervised by Dr. Álvar Arnaiz-González and Dr. José-Francisco Díez-Pastor. Project PI: M.D. Esther Cubo.
 
 ## Abstract
 During the last decades tele-rehabilitation has been consolidated as a solution for many diseases because of, mainly, its good results, its reduction of costs, and the possibility of reaching remote places. 
@@ -18,6 +18,11 @@ The paper presents a full-stack, using Big Data frameworks, that makes possible 
 To ingest the huge amount of videos that simultaneous patients could produce, Big Data technologies were used.
 Moreover, the use of deep neural networks makes possible the proper identification of the patients' skeleton which would allow automatic evaluation of the exercises helping to the therapist in his or her tasks.
 The system is being currently applied in Spain, more specifically in the province of Burgos, in the framework of a national project for evaluating the use of a multidisciplinary tele-rehabilitation fall prevention program.
+
+
+## Cite this software as:
+_in progress_
+
 
 ## Output examples
 
@@ -47,7 +52,7 @@ $ docker build ../../dockers/spark/worker -tspark-worker-fis:2.4.5
 
 2. **Start the server**
 
-To support the tele-rehabilitation system it is necessary to start the service of Kafka and Spark
+To support the tele-rehabilitation system it is necessary to start the service of Kafka and Spark.
    
 ```
 $ ./start-server <output> <n. of cpu for master> <n. of workers > <n. of cpu for workers> <memory per workers>
@@ -67,7 +72,7 @@ See *Manual creation* for parameters of ```emitter.py``` and for ```consumer.py`
 
 4. **Close a stream**
 
-When tele-rehabilitation has finished the stream must be closed to release the machine's resources.
+When tele-rehabilitation has finished, the stream must be closed to release the machine's resources.
 
 ```
 $ ./stop-stream ,stream identifier>
@@ -75,7 +80,7 @@ $ ./stop-stream ,stream identifier>
 
 5. **Close the server**
 
-The server must be securely closed.The following command is used to ensure orderly shutdown.
+The server must be securely closed. The following command is used to ensure properly shutdown.
 
 ```
 $ ./stop-server
@@ -83,7 +88,7 @@ $ ./stop-server
 
 ### ***Manual creation***
 
-The following python scripts take care of the enqueue and processing of the video stream.
+The following Python scripts take care of the enqueue and processing of the video stream.
 
 1. ```emitter.py```
 
@@ -155,8 +160,11 @@ Communication parameters
 		(Default: video-stream-event)
 ```
 
-## Third party 
-### Apache 2.0:
+## Third party
+
+List of the libraries used grouped by licence.
+
+### Apache 2.0
 - **[Apache Kafka](https://kafka.apache.org/)** from *Apache Foundation* 
 - **[Apache Zookeeper](https://zookeeper.apache.org/)** from *Apache Foundation* 
 - **[Apache Spark](https://spark.apache.org/)** from *Apache Foundation* 
@@ -173,4 +181,3 @@ Communication parameters
 ### MIT
 - **[Bootstrap 4](https://getbootstrap.com/)** from *Twitter* 
 - **[jQuery](https://jquery.**com**/)** from *JS Foundation* 
-
