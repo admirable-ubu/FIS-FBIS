@@ -27,11 +27,11 @@ _in progress_
 ## Output examples
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jlgarridol/TFM-FIS-IF/master/doc/img/gifdemo.gif" width="1000"/>
+  <img src="https://raw.githubusercontent.com/jlgarridol/TFM-FIS-IF/master/doc/img/gifdemo.gif" width="500"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Josemi/TFM-FIS-IA/master/doc/Latex/img/josemi.gif" width="1000"/>
+  <img src="https://raw.githubusercontent.com/Josemi/TFM-FIS-IA/master/doc/Latex/img/josemi.gif" width="500"/>
 </p>
 
 ## Deploy
