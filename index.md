@@ -7,7 +7,7 @@
 
 Repository of the software for the project FIS PI19/00670 "Feasibility and cost-effectiveness study of the use of telemedicine is being developed with a multidisciplinary team for the prevention of falls in Parkinson's disease" of the Spanish Government.
 
-Developed by *Jose-Luis Garrido-Labrador* and *Jose-Miguel Ramírez-Sanz*, supervised by Dr. Álvar Arnaiz-González and Dr. José-Francisco Díez-Pastor. Project PI: M.D. Esther Cubo.
+Developed by *José Luis Garrido-Labrador* and *José Miguel Ramírez-Sanz*, supervised by Dr. Álvar Arnaiz-González and Dr. José-Francisco Díez-Pastor. Project PI: M.D. Esther Cubo.
 
 ## Abstract
 During the last decades tele-rehabilitation has been consolidated as a solution for many diseases because of, mainly, its good results, its reduction of costs, and the possibility of reaching remote places. 
