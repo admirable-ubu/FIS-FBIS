@@ -19,6 +19,9 @@ To ingest the huge amount of videos that simultaneous patients could produce, Bi
 Moreover, the use of deep neural networks makes possible the proper identification of the patients' skeleton which would allow automatic evaluation of the exercises helping to the therapist in his or her tasks.
 The system is being currently applied in Spain, more specifically in the province of Burgos, in the framework of a national project for evaluating the use of a multidisciplinary tele-rehabilitation fall prevention program.
 
+## Summary video
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3CGUE739Rzw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Cite this software as:
 _in progress_
