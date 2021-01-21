@@ -3,7 +3,7 @@
 [![run-on-docker](https://img.shields.io/badge/Runs%20on-Docker-2395ed.svg?style=flat-square)](https://www.python.org/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/jlgarridol/FIS-FBIS?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/jlgarridol/FIS-FBIS?style=flat-square) 
-![Maintenance](https://img.shields.io/maintenance/yes/2020?style=flat-square)
+![Maintenance](https://img.shields.io/maintenance/yes/2022?style=flat-square)
 
 Repository of the software for the project FIS PI19/00670 "Feasibility and cost-effectiveness study of the use of telemedicine is being developed with a multidisciplinary team for the prevention of falls in Parkinson's disease" of the Spanish Government.
 
